@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 
 export default function App() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [stations, setStations] = useState([]);
   const [selectedStation, setSelectedStation] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token') || '');
@@ -16,7 +17,7 @@ export default function App() {
     const fetchStations = async () => {
       try {
         // Defaults coordinates to Central Bengaluru area [lng, lat]
-        const res = await axios.get('http://localhost:5000/api/stations/nearby?lng=77.5946&lat=12.9716&maxDistance=10000');
+        const res = await axios.get(`${API_URL}/api/stations/nearby?lng=77.5946&lat=12.9716&maxDistance=10000`);
         setStations(res.data);
       } catch (err) {
         console.error("Error pulling stations", err);
