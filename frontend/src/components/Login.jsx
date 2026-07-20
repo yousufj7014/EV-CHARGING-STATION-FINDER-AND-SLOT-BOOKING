@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function Login({ onAuthSuccess, toggleAuth }) {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const res = await axios.post(`${API_URL}/api/auth/login`, formData);
       onAuthSuccess(res.data.token, res.data.user);
     } catch (err) {
       setError(err.response?.data?.msg || 'Invalid credentials');
