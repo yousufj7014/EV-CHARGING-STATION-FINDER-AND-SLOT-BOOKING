@@ -3,14 +3,27 @@ import Station from '../models/Station.js';
 
 const router = express.Router();
 
-// Get stations near a specific location
+// Get all stations
+router.get('/', async (req, res) => {
+  try {
+    const stations = await Station.find();
+    res.json(stations);
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
+});
+
+// Get nearby stations
 router.get('/nearby', async (req, res) => {
-  const { lng, lat, maxDistance = 5000 } = req.query; // maxDistance in meters
+  const { lng, lat, maxDistance = 5000 } = req.query;
   try {
     const stations = await Station.find({
       location: {
         $near: {
-          $geometry: { type: 'Point', coordinates: [parseFloat(lng), parseFloat(lat)] },
+          $geometry: {
+            type: 'Point',
+            coordinates: [parseFloat(lng), parseFloat(lat)]
+          },
           $maxDistance: parseInt(maxDistance)
         }
       }
@@ -21,7 +34,7 @@ router.get('/nearby', async (req, res) => {
   }
 });
 
-// Create a station (for setup/seeding)
+// Create station
 router.post('/', async (req, res) => {
   try {
     const newStation = new Station(req.body);
