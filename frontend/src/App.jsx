@@ -25,10 +25,6 @@ export default function App() {
   } catch (err) {
     console.error("Error pulling stations", err);
   }
-};
-      } catch (err) {
-        console.error("Error pulling stations", err);
-      }
     };
     fetchStations();
   }, []);
