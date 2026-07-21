@@ -17,7 +17,9 @@ export default function App() {
     const fetchStations = async () => {
       try {
         // Defaults coordinates to Central Bengaluru area [lng, lat]
-        const res = await axios.get('${API_URL}/api/stations');
+        const res = await axios.get(
+  ${API_URL}/api/stations/nearby?lng=77.5946&lat=12.9716&maxDistance=10000
+);
         setStations(res.data);
       } catch (err) {
         console.error("Error pulling stations", err);
