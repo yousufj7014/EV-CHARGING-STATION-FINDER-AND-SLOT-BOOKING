@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function BookingModal({ station, token, onClose }) {
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [bookedSlots, setBookedSlots] = useState([]);
@@ -10,7 +12,9 @@ export default function BookingModal({ station, token, onClose }) {
   useEffect(() => {
     const fetchBookedSlots = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/bookings/booked-slots?stationId=${station._id}&date=${date}`);
+        const res = await axios.get(`${API_URL}/api/bookings/booked-slots?stationID=${station._id}&date=${date}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
         setBookedSlots(res.data);
       } catch (err) {
         console.error("Error fetching slots", err);
@@ -23,7 +27,7 @@ export default function BookingModal({ station, token, onClose }) {
     if (!selectedSlot) return alert('Please choose a slot first.');
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/bookings',
+        `${API_URL}/api/bookings`,
         { stationId: station._id, slot: selectedSlot, date },
         { headers: { Authorization: `Bearer ${token}` } }
       );
