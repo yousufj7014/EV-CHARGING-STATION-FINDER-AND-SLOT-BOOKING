@@ -1,73 +1,144 @@
-# ⚡ EV Charging Station Finder and Slot Booking System
+# ⚡ EV Charging Station Finder & Slot Booking
 
-A web-based application that helps EV users find nearby charging stations and book charging slots online. This project aims to reduce waiting time and provide a smooth charging experience.
+A full-stack MERN application that helps users locate EV charging stations, check slot availability, and book charging slots online.
 
-## 🚀 Features
+## 🚀 Live Demo
+🔗 https://ev-charging-station-finder-and-slot-three.vercel.app
 
-- 🔍 Find nearby EV charging stations
-- 📍 View station details
-- 📅 Book charging slots online
+## 💻 GitHub Repository
+🔗 https://github.com/yousufj7014/EV-CHARGING-STATION-FINDER-AND-SLOT-BOOKING
+
+---
+
+## ✨ Features
+
+- 🔐 User Authentication (JWT)
 - 👤 User Registration & Login
-- 🛠️ Admin can manage charging stations
-- 📱 Responsive user interface
+- 🗺️ Interactive Map using Leaflet & OpenStreetMap
+- ⚡ View EV Charging Stations
+- 📅 Book Charging Slots
+- 🚫 Prevent Duplicate Bookings
+- 📊 Real-time Slot Availability
+- 🌐 Responsive UI
+- ☁️ Backend deployed on Render
+- 🚀 Frontend deployed on Vercel
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- HTML
-- CSS
-- JavaScript
+- React.js
+- Vite
+- Axios
+- React Leaflet
+- Leaflet CSS
 
 ### Backend
 - Node.js
 - Express.js
+- MongoDB Atlas
+- Mongoose
+- JWT Authentication
+- bcryptjs
 
-### Database
-- MongoDB
+### Deployment
+- Vercel
+- Render
 
-## 📂 Project Structure
+---
+
+## 📁 Project Structure
 
 ```
-EV-CHARGING-STATION-FINDER-AND-SLOT-BOOKING
-│
-├── frontend/
-├── backend/
-└── README.md
+frontend/
+ ├── src/
+ ├── components/
+ ├── App.jsx
+
+backend/
+ ├── config/
+ ├── models/
+ ├── routes/
+ ├── server.js
 ```
+
+---
 
 ## ⚙️ Installation
+
+### Clone Repository
 
 ```bash
 git clone https://github.com/yousufj7014/EV-CHARGING-STATION-FINDER-AND-SLOT-BOOKING.git
 ```
 
-```bash
-cd EV-CHARGING-STATION-FINDER-AND-SLOT-BOOKING
-```
+### Backend
 
 ```bash
+cd backend
 npm install
-```
-
-```bash
 npm start
 ```
 
-## 🎯 Future Improvements
+### Frontend
 
-- Google Maps Integration
-- Online Payment
-- Live Slot Availability
-- Email Notifications
-- Mobile App Support
-
-## 👨‍💻 Developer
-
-**J Yousuf**
-
-GitHub:
-https://github.com/yousufj7014
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
 ---
 
-⭐ If you like this project, don't forget to star this repository.
+## 🔑 Environment Variables
+
+Backend `.env`
+
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+```
+
+Frontend `.env`
+
+```env
+VITE_API_URL=https://your-render-backend-url.onrender.com
+```
+
+---
+
+## 📸 Screenshots
+
+- Login Page
+- Interactive Map
+- Booking Screen
+- Successful Booking
+
+(Add screenshots here)
+
+---
+
+## 📌 Future Improvements
+
+- GPS Current Location
+- Search Nearby Stations
+- My Bookings Page
+- Cancel Booking
+- Admin Dashboard
+- Email Notifications
+- Payment Integration
+
+---
+
+## 👨‍💻 Author
+
+**J. Yousuf**
+
+- LinkedIn: https://www.linkedin.com/in/j-yousuf-89893a419
+- GitHub: https://github.com/yousufj7014
+
+---
+
+⭐ If you like this project, don't forget to give it a Star!
